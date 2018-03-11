@@ -1,0 +1,12 @@
+body{
+    background-color: #f1f1f1;
+}
+#title{background: pink}
+
+#bgTupian{
+    background: url("../images/2.jpg") no-repeat;
+    width: 200px;
+    height: 200px;
+    transform: rotate(45deg);
+    box-shadow: 1px 1px 0 rgba(0,0,0,.25);
+}

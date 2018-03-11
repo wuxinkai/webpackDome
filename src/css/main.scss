@@ -1,0 +1,7 @@
+$nav-color:#ccc;
+#nav{
+  $width:300px;
+  width: $width;
+  height: $width;
+  background: $nav-color;
+}
