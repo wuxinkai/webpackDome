@@ -66,11 +66,15 @@
 /******/ ({
 
 /***/ 4:
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-document.getElementById('title2').innerHTML='这是entry2引入的内容，热更新功能';
-document.getElementById('title3').innerHTML='annot set property \'innerHTML\' of null  原因是没有找到title3的id文件';
+"use strict";
 
+
+{
+    var box = '在entry2中将let转化成了var';
+    document.getElementById('text2').innerHTML = box;
+}
 
 /***/ })
 

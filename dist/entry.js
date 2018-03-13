@@ -65,23 +65,26 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_index_css__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__css_index_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_back_less__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_back_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__css_back_less__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__css_main_scss__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__css_main_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__css_main_scss__);
 
 
+var _index = __webpack_require__(1);
 
+var _index2 = _interopRequireDefault(_index);
 
+var _back = __webpack_require__(2);
 
-document.getElementById('title').innerHTML='这是第一个entry。js的内容';
+var _back2 = _interopRequireDefault(_back);
 
+var _main = __webpack_require__(3);
+
+var _main2 = _interopRequireDefault(_main);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+document.getElementById('text1').innerHTML = '练习项目';
 
 /***/ }),
 /* 1 */

@@ -1,12 +1,19 @@
 body{
-    background-color: #f1f1f1;
+    background-color: red;
+    color: white;
 }
-#title{background: pink}
 
 #bgTupian{
     background: url("../images/2.jpg") no-repeat;
     width: 200px;
     height: 200px;
     transform: rotate(45deg);
+    margin-top: 100px;
     box-shadow: 1px 1px 0 rgba(0,0,0,.25);
+}
+
+/*删除没有使用的css*/
+#aaaa{
+    background-color: #f1f1f1;
+    color: #f1f1f1;
 }

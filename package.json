@@ -1,32 +1,49 @@
 {
-  "name": "webpackdemo",
+  "name": "webpackDome",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "webpack-dev-server --open"
+    "server": "webpack-dev-server --open",
+    "dev":"export type=dev&&webapck",
+    "build": "export type=build&&webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuxinkai/webpackDome.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wuxinkai/webpackDome/issues"
+  },
+  "homepage": "https://github.com/wuxinkai/webpackDome#readme",
   "devDependencies": {
     "autoprefixer": "^8.1.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.0",
-    "file-loader": "^1.1.11",
-    "html-webpack-plugin": "^3.0.6",
-    "less": "^3.0.1",
-    "less-loader": "^4.1.0",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.30.1",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
     "node-sass": "^4.7.2",
     "postcss-loader": "^2.1.1",
+    "purify-css": "^1.2.5",
+    "purifycss-webpack": "^0.7.0",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.18.2",
     "url-loader": "^1.0.1",
-    "webpack": "^3.8.1",
+    "webpack": "^3.6.0",
     "webpack-dev-server": "^2.8.2"
   },
   "dependencies": {
     "html-withimg-loader": "^0.1.16",
-    "server": "^1.0.18"
+    "path": "^0.12.7"
   }
 }
