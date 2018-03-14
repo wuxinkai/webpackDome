@@ -1,10 +1,11 @@
+/*! 表明这是谁写的代码，-----我鑫凯 2018-3-14 */
 body {
   background-color: red;
   color: white;
 }
 
 #bgTupian {
-  background: url(http://192.168.1.6:1717/images/f51b0e3c7a99f0382181a7a39d88f3c1.jpg) no-repeat;
+  background: url(http://192.168.1.5:1717/images/f51b0e3c7a99f0382181a7a39d88f3c1.jpg) no-repeat;
   width: 200px;
   height: 200px;
   -webkit-transform: rotate(45deg);

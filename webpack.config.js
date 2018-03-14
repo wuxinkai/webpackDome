@@ -13,18 +13,23 @@ const purifyCssPlugin = require('purifycss-webpack');//删除没有使用的css
 
 const entry = require('./js2/entry_webpack.js'); //模块化
 
+const webpack = require('webpack'); //为了引入插件用的
+
+const CopyWebpackPlugin = require('copy-webpack-plugin'); //静态文件plugin
+
+
 //css分离图片找不到问题
 
 
-console.log(encodeURIComponent(process.env.type));//参数传递不过来需要修改
+//console.log(encodeURIComponent(process.env.type));//参数传递不过来需要修改
 
 if(process.env.type== "build"){
     var website={ //开发路径
-        publicPath:'http://192.168.1.6:1717/'
+        publicPath:'http://192.168.1.5:1717/'
     }
 }else{
     var website={  //生产路径
-        publicPath:'http://www.baidu.com/'
+      //  publicPath:'http://www.baidu.com/'
     }
 }
 
@@ -35,11 +40,14 @@ module.exports ={
     // cheap-module-source-map打包慢（独立文件）
     //  eval-source-map 用于开发
 
-    // entry:{
-    //     entry:'./src/js/entry.js',
-    //     entry2:'./src/js/entry2.js'
-    // },
-    entry:entry.path, //配置模块化
+    entry:{
+        entry:'./src/js/entry.js',
+       // entry2:'./src/js/entry2.js',
+        jquery:'jquery', //抽离jquery
+        vue:'vue'
+    },
+
+   // entry:entry.path, //配置模块化
 
     output:{
         //path 是路径
@@ -117,6 +125,17 @@ module.exports ={
 //压缩 打包文件
      // new uglify(),
 
+//抽离jquery插件
+        new webpack.optimize.CommonsChunkPlugin({
+            name:['jquery','vue'],//把jquery单独抽离
+            filename:'assets/js/[name].js', //抽离到哪里
+            minChunks:2 //抽离几个文件
+        }),
+
+//引入插件
+        new webpack.ProvidePlugin({
+            $:'jquery' //在页面中不用就不会加载
+        }),
  //配置html文件
         new htmlPlugin({
             minify:{removeAttributeQuotes:true}, //删除 引号
@@ -129,14 +148,30 @@ module.exports ={
 //删除没有使用的css
         new purifyCssPlugin({
             paths:glob.sync(path.join(__dirname,'src/*.html')) //搜索所有的html
-        })
+        }),
 
+//打包注释
+        new webpack.BannerPlugin('表明这是谁写的代码，-----我鑫凯 2018-3-14'),
+
+//配置静态文件public
+        new CopyWebpackPlugin([
+            {
+                from:__dirname+'/src/public', //本地文件目录
+                to:'./public'
+            }
+        ])
     ],
     devServer:{ //热更新监听
         contentBase:path.resolve(__dirname,'dist'), //监听那个文件
-        host:'192.168.1.6', //localhost，自己的IP地址
+        host:'192.168.1.5', //localhost，自己的IP地址
         compress:true, //是否启用服务器压缩
         port:1717, //端口
     }, //配置服务
+//自动打包
+    watchOptions:{
+        poll:1000,//1秒钟检查一次是否修改过内容，如果修改就打包
+        aggregeateTimeout:500, //鼠标连续点保存 不会打包两次， 500毫秒的间隔
+        ignored:'/node_modules/' //不检测这个文件
+    }
 
 }
